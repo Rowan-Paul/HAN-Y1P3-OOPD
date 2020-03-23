@@ -23,8 +23,8 @@ public class FruitCatcher extends GameEngine {
 
     @Override
     public void setupGame() {
-        int worldWidth = 853;
-        int worldHeight = 480;
+        int worldWidth = 800;
+        int worldHeight = 600;
         
         // of course it is best to add new game objects
         // in a separate method instead of making the update so large.
@@ -71,10 +71,10 @@ public class FruitCatcher extends GameEngine {
         tileMap = new TileMap(tileSize, tileTypes, tilesMap);
     }
     
-   // private void initializeSound() {
-   // 	backgroundMusic = new Sound(this, MEDIA_URL.concat("jump_08.mp3"));
-	//	backgroundMusic.loop(-1);
-	//}
+	/*
+	 * private void initializeSound() { backgroundMusic = new Sound(this,
+	 * MEDIA_URL.concat("jump_08.mp3")); backgroundMusic.loop(-1); }
+	 */
     
 
 }
