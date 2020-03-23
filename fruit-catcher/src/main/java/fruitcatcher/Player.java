@@ -19,9 +19,9 @@ public class Player extends SpriteObject implements ICollidableWithTiles {
 	final int size = 96;
 
 	public Player(FruitCatcher fruitCatcher) {
-		// Met `.concat()` plak je 2 strings aan elkaar.
-		// De methode returned een nieuwe String terug.
-		super(new Sprite(FruitCatcher.MEDIA_URL.concat("playerstanding.png")));
+		// Use `.concat ()` to string 2 strings together.
+		// The method returned a new String.
+		super(new Sprite(FruitCatcher.MEDIA_URL.concat("playerStanding.png")));
 		this.fruitCatcher = fruitCatcher;
 		gravity = 0.2f;
 		setGravity(gravity);

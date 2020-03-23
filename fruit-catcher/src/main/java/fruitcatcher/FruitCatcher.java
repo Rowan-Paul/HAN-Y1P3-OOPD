@@ -13,7 +13,7 @@ public class FruitCatcher extends GameEngine {
     
 	private Player player;
 	
-    // Deze regel maakt het makkelijker om te refereren naar je plaatjes.
+	// This line makes it easier to reference your images.
     public static String MEDIA_URL = "src/main/java/fruitcatcher/media/";
     
     public static void main(String[] args) {
@@ -23,13 +23,11 @@ public class FruitCatcher extends GameEngine {
 
     @Override
     public void setupGame() {
-        int worldWidth = 800;
-        int worldHeight = 600;
+        int worldWidth = 853;
+        int worldHeight = 480;
         
-        // uiteraard kan je het toevoegen van
-        // nieuwe game objects misschien het beste
-        // in een aparte methode doen
-        // i.p.v. de update zo groot te maken.
+        // of course it is best to add new game objects
+        // in a separate method instead of making the update so large.
         player = new Player(this);
         addGameObject(player, 200, 200);
         
@@ -39,7 +37,7 @@ public class FruitCatcher extends GameEngine {
 
         setView(view);
         size(worldWidth, worldHeight);
-        //view.setBackground(loadImage(FruitCatcher.MEDIA_URL.concat("background.png")));
+        view.setBackground(loadImage(FruitCatcher.MEDIA_URL.concat("background.png")));
         initializeTileMap();
         //initializeSound();
     }
