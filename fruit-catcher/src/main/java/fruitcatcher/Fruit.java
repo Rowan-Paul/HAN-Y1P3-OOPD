@@ -15,6 +15,7 @@ import processing.core.PVector;
 public class Fruit extends SpriteObject implements ICollidableWithTiles {
 
 	private FruitCatcher fruitCatcher;
+    private FruitCatcher world;
 
 	private float gravity;
 	final int size = 96;
@@ -46,7 +47,6 @@ public class Fruit extends SpriteObject implements ICollidableWithTiles {
 		 for (GameObject go: collidedGameObjects) { 
 			 if (go instanceof Player) { 
 				 world.deleteGameObject(this);
-				 System.out.println("Fruit hit"); 
 			 } 
 		 } 
 	 }
