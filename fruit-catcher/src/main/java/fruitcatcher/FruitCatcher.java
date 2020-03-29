@@ -33,7 +33,7 @@ public class FruitCatcher extends GameEngine {
         addGameObject(player, 200, 200);
         
         fruit = new Fruit(this);
-        addGameObject(fruit, 400, 200);
+        addGameObject(fruit, 500, 100);
         
         //spawn = new DiscSpawner(this, 1);
         
