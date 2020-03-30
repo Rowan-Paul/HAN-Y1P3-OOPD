@@ -49,8 +49,7 @@ public class FruitCatcher extends GameEngine {
 
     @Override
     public void update() {
-        System.out.println(points);
-        
+    	
     }
     
     private void initializeTileMap() {
