@@ -54,7 +54,7 @@ public class FruitCatcher extends GameEngine {
 
     @Override
     public void update() {
-    	System.out.println(droppedFruits);
+    
     }
     
     private void initializeTileMap() {

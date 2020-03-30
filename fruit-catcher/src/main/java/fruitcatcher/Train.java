@@ -2,9 +2,11 @@ package fruitcatcher;
 
 import java.util.List;
 
+import nl.han.ica.oopg.alarm.Alarm;
+import nl.han.ica.oopg.alarm.IAlarmListener;
 import nl.han.ica.oopg.objects.GameObject;
 
-public class Train extends FallingObject {
+public class Train extends FallingObject implements IAlarmListener {
 
 	public Train(FruitCatcher fruitCatcher) {
 		super(fruitCatcher, "train.png");
@@ -13,6 +15,7 @@ public class Train extends FallingObject {
 	@Override
 	public void doAction() {
 		setSpeed(4);
+		startAlarm();
 	}
 
 	@Override
@@ -23,6 +26,17 @@ public class Train extends FallingObject {
 				fruitCatcher.deleteGameObject(this);
 			}
 		}
+	}
+	
+	private void startAlarm() {
+		Alarm alarm = new Alarm("Train", 3);
+		alarm.addTarget(this);
+		alarm.start();
+	}
+
+	@Override
+	public void triggerAlarm(String alarmName) {
+		setSpeed(1);
 	}
 
 }

@@ -52,7 +52,6 @@ public class FallingObjectSpawner implements IAlarmListener {
 			Bomb bomb = new Bomb(fruitCatcher);
 			fruitCatcher.addGameObject(bomb, random.nextInt(fruitCatcher.width - bomb.getSize()), -bomb.getSize());
 		}
-
 	}
 
 	private void startAlarm() {
