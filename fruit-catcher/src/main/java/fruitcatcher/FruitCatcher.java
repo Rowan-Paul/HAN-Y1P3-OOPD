@@ -14,6 +14,7 @@ public class FruitCatcher extends GameEngine {
 	private Player player;
 	private Fruit fruit;
 	private FallingObjectSpawner spawner;
+	private int points;
 	
     public static String MEDIA_URL = "src/main/java/fruitcatcher/media/";
     
@@ -48,7 +49,7 @@ public class FruitCatcher extends GameEngine {
 
     @Override
     public void update() {
-        // Dit doet nog helemaal niks
+        System.out.println(points);
         
     }
     
@@ -77,6 +78,15 @@ public class FruitCatcher extends GameEngine {
 
 	public Player getPlayer() {
 		return player;
+	}
+	
+
+	public int getPoints() {
+		return points;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
 	}
 
     

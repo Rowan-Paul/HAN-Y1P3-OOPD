@@ -12,14 +12,16 @@ public class Fruit extends FallingObject {
 	
 	@Override
 	public void doAction() {
-		// TODO Auto-generated method stub
-		
+		int points = fruitCatcher.getPoints();
+		points++;
+		fruitCatcher.setPoints(points);
 	}
 
 	// @Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
 		for (GameObject go : collidedGameObjects) {
 			if (go instanceof Player) {
+				doAction();
 				fruitCatcher.deleteGameObject(this);
 			}
 		}
