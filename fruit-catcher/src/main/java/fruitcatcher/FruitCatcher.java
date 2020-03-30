@@ -37,23 +37,12 @@ public class FruitCatcher extends GameEngine {
         startButton = new StartButton(this, worldWidth / 2, worldHeight / 2, 200, 150);
         addGameObject(startButton);
         
-        player = new Player(this);
-        addGameObject(getPlayer(), 200, 500);
-        
-        fruit = new Fruit(this, "apple.png");
-        addGameObject(fruit, 500, 100);
-        
-        fallingObjectSpawner = new FallingObjectSpawner(this);
-        diamondSpawner = new DiamondSpawner(this);
-        
-        diamond = new Diamond(this);
-        addGameObject(diamond, 500, 500);
-        
         View view = new View(worldWidth, worldHeight);
+        
+        view.setBackground(loadImage(FruitCatcher.MEDIA_URL.concat("background.png")));
 
         setView(view);
         size(worldWidth, worldHeight);
-        view.setBackground(loadImage(FruitCatcher.MEDIA_URL.concat("background.png")));
         initializeTileMap();
         createDashboard(worldWidth, 26);
         //initializeSound();
@@ -94,7 +83,22 @@ public class FruitCatcher extends GameEngine {
         addDashboard(dashboard);
     }
     
-    private void startPlaying() {
+    public void startGame() {
+        
+    	player = new Player(this);
+        addGameObject(getPlayer(), 200, 500);
+        
+        fruit = new Fruit(this, "apple.png");
+        addGameObject(fruit, 500, 100);
+        
+        fallingObjectSpawner = new FallingObjectSpawner(this);
+        diamondSpawner = new DiamondSpawner(this);
+        
+        diamond = new Diamond(this);
+        addGameObject(diamond, 500, 500);
+    }
+    
+    public void startPlaying() {
     	
     }
    

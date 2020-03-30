@@ -11,7 +11,7 @@ public class StartButton extends Button {
 
 	@Override
 	public void doAction() {
-		System.out.println("x");
-		
+		fruitCatcher.startGame();
+		fruitCatcher.deleteGameObject(this);
 	}
 }
