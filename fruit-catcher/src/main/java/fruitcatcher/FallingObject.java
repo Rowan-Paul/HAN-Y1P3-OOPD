@@ -20,15 +20,19 @@ public abstract class FallingObject extends SpriteObject implements ICollidableW
 	public void update() {
 		if (this.y > -getSize() - 1) {
 			setDirectionSpeed(180, speed);
-		}   
+		}
 		if (this.y > fruitCatcher.getHeight()) {
 			fruitCatcher.deleteGameObject(this);
 		}
+		if (this.y > fruitCatcher.getHeight() && this instanceof Fruit) {
+			int droppedFruits = fruitCatcher.getDroppedFruits();
+			droppedFruits++;
+			fruitCatcher.setDroppedFruits(droppedFruits);
+		}
 	}
-	
+
 	public abstract void doAction();
-	
-	
+
 	public int getSize() {
 		return size;
 	}

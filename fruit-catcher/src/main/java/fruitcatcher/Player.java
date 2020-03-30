@@ -14,14 +14,14 @@ import processing.core.PVector;
 public class Player extends SpriteObject implements ICollidableWithTiles {
 
 	private FruitCatcher fruitCatcher;
-	private final int size = 96;
 	private int speed;
 
 	public Player(FruitCatcher fruitCatcher) {
-		super(new Sprite(FruitCatcher.MEDIA_URL.concat("playerStanding.png")));
+		super(new Sprite(FruitCatcher.MEDIA_URL.concat("playerStanding2x.png")));
 		this.fruitCatcher = fruitCatcher;
 		setGravity(0.2f);
-		this.speed = 6;
+		speed = 7;
+		setFriction(0.05f);
 	}
 
 	@Override
@@ -31,10 +31,11 @@ public class Player extends SpriteObject implements ICollidableWithTiles {
 			setX(0);
 		}
 
-		if (getX() >= fruitCatcher.width - size) {
+		if (getX() >= fruitCatcher.width - getWidth()) {
 			setxSpeed(0);
-			setX(fruitCatcher.width - size);
+			setX(fruitCatcher.width - getWidth());
 		}
+
 	}
 
 	@Override
@@ -54,12 +55,8 @@ public class Player extends SpriteObject implements ICollidableWithTiles {
 		for (CollidedTile ct : collidedTiles) {
 			if (ct.getTile() instanceof FloorTile) {
 				if (ct.getCollisionSide() == CollisionSide.TOP) {
-					try {
-						vector = fruitCatcher.getTileMap().getTilePixelLocation(ct.getTile());
-						setY(vector.y - getHeight());
-					} catch (TileNotFoundException e) {
-						e.printStackTrace();
-					}
+					vector = fruitCatcher.getTileMap().getTilePixelLocation(ct.getTile());
+					setY(vector.y - getHeight());
 				}
 			}
 		}

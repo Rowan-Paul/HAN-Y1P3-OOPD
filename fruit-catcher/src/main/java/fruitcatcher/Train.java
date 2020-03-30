@@ -15,7 +15,7 @@ public class Train extends FallingObject {
 		setSpeed(4);
 	}
 
-	// @Override
+	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
 		for (GameObject go : collidedGameObjects) {
 			if (go instanceof Player) {

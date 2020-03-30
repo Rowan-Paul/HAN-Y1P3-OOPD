@@ -15,6 +15,8 @@ public class FruitCatcher extends GameEngine {
 	private Fruit fruit;
 	private FallingObjectSpawner spawner;
 	private int points;
+	private int droppedFruits;
+	private Diamond diamond;
 	
     public static String MEDIA_URL = "src/main/java/fruitcatcher/media/";
     
@@ -31,12 +33,15 @@ public class FruitCatcher extends GameEngine {
         // of course it is best to add new game objects
         // in a separate method instead of making the update so large.
         player = new Player(this);
-        addGameObject(getPlayer(), 200, 200);
+        addGameObject(getPlayer(), 200, 500);
         
         fruit = new Fruit(this, "apple.png");
         addGameObject(fruit, 500, 100);
         
         spawner = new FallingObjectSpawner(this);
+        
+        diamond = new Diamond(this);
+        addGameObject(diamond, 500, 500);
         
         View view = new View(worldWidth, worldHeight);
 
@@ -49,7 +54,7 @@ public class FruitCatcher extends GameEngine {
 
     @Override
     public void update() {
-    	
+    	System.out.println(droppedFruits);
     }
     
     private void initializeTileMap() {
@@ -86,6 +91,14 @@ public class FruitCatcher extends GameEngine {
 
 	public void setPoints(int points) {
 		this.points = points;
+	}
+
+	public int getDroppedFruits() {
+		return droppedFruits;
+	}
+
+	public void setDroppedFruits(int droppedFruits) {
+		this.droppedFruits = droppedFruits;
 	}
 
     

@@ -16,7 +16,7 @@ public class Bomb extends FallingObject {
 		
 	}
 
-	// @Override
+	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
 		for (GameObject go : collidedGameObjects) {
 			if (go instanceof Player) {

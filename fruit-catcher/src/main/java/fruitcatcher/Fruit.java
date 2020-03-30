@@ -17,7 +17,7 @@ public class Fruit extends FallingObject {
 		fruitCatcher.setPoints(points);
 	}
 
-	// @Override
+	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
 		for (GameObject go : collidedGameObjects) {
 			if (go instanceof Player) {

@@ -2,40 +2,62 @@ package fruitcatcher;
 
 import java.util.List;
 
+import fruitcatcher.tiles.FloorTile;
 import nl.han.ica.oopg.collision.CollidedTile;
+import nl.han.ica.oopg.collision.CollisionSide;
 import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
 import nl.han.ica.oopg.collision.ICollidableWithTiles;
+import nl.han.ica.oopg.exceptions.TileNotFoundException;
 import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
+import processing.core.PVector;
 
 public class Diamond extends SpriteObject implements ICollidableWithTiles, ICollidableWithGameObjects {
-	
+
 	private FruitCatcher fruitCatcher;
-	
-	private int size = 96;
+
+	private final int HEIGHT = 66;
+	private final int WIDTH = 66;
 
 	public Diamond(FruitCatcher fruitCatcher) {
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat("diamond.png")));
 		this.fruitCatcher = fruitCatcher;
+		setGravity(0.2f);
+		setHeight(HEIGHT);
+		setWidth(WIDTH);
 	}
 
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	private void doAction() {
+
 	}
 
 	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
-		// TODO Auto-generated method stub
-		
+		for (GameObject go : collidedGameObjects) {
+			if (go instanceof Player) {
+				doAction();
+				fruitCatcher.deleteGameObject(this);
+			}
+		}
 	}
 
 	@Override
 	public void tileCollisionOccurred(List<CollidedTile> collidedTiles) {
-		// TODO Auto-generated method stub
-		
+		PVector vector;
+		for (CollidedTile ct : collidedTiles) {
+			if (ct.getTile() instanceof FloorTile) {
+				if (ct.getCollisionSide() == CollisionSide.TOP) {
+					vector = fruitCatcher.getTileMap().getTilePixelLocation(ct.getTile());
+					setY(vector.y - getHeight());
+				}
+			}
+		}
 	}
-	
 }

@@ -15,7 +15,7 @@ public class Horse extends FallingObject {
 		fruitCatcher.getPlayer().setSpeed(4);
 	}
 
-	// @Override
+	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
 		for (GameObject go : collidedGameObjects) {
 			if (go instanceof Player) {
