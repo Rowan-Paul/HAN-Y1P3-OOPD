@@ -21,18 +21,22 @@ public class FruitCatcher extends GameEngine {
 	private Diamond diamond;
 	private TextObject dashboardText;
 	private StartButton startButton;
+	private RestartButton restartButton;
+	
+	private int worldWidth = 800;
+    private int worldHeight = 600;
 	
     public static String MEDIA_URL = "src/main/java/fruitcatcher/media/";
     
     public static void main(String[] args) {
         FruitCatcher fruitCatcher = new FruitCatcher();
         fruitCatcher.runSketch();
+        int worldWidth = 800;
+        int worldHeight = 600;
     }
 
     @Override
     public void setupGame() {
-        int worldWidth = 800;
-        int worldHeight = 600;
         
         startButton = new StartButton(this, worldWidth / 2, worldHeight / 2, 200, 150);
         addGameObject(startButton);
@@ -50,7 +54,12 @@ public class FruitCatcher extends GameEngine {
 
     @Override
     public void update() {
-    
+    	System.out.println(droppedFruits);
+    	if (droppedFruits == 3) {
+    		deleteGameObject(player);
+    		restartButton = new RestartButton(this, worldWidth / 2, worldHeight / 2, 200, 150);
+            addGameObject(restartButton);
+    	}
     }
     
     private void initializeTileMap() {
@@ -83,7 +92,7 @@ public class FruitCatcher extends GameEngine {
         addDashboard(dashboard);
     }
     
-    public void startGame() {
+    public void startPlaying() {
         
     	player = new Player(this);
         addGameObject(getPlayer(), 200, 500);
@@ -98,7 +107,7 @@ public class FruitCatcher extends GameEngine {
         addGameObject(diamond, 500, 500);
     }
     
-    public void startPlaying() {
+    public void restartPlaying() {
     	
     }
    
