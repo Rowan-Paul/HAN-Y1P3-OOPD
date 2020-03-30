@@ -12,7 +12,7 @@ public class Fruit extends FallingObject {
 	
 	@Override
 	public void doAction() {
-		fruitCatcher.increasePoints();
+		fruitCatcher.increasePoints(1);
 	}
 
 	@Override

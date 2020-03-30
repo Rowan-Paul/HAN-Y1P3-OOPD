@@ -62,7 +62,7 @@ public class FruitCatcher extends GameEngine {
 			}
 			buttons++;
 		}
-		System.out.println(persistence);
+		System.out.println(persistence.fileExists());
 	}
 
 	private void initializeTileMap() {
@@ -90,7 +90,7 @@ public class FruitCatcher extends GameEngine {
 		addDashboard(dashboard);
 	}
 	
-	private void refreshDasboardText() {
+	private void refreshDashboardText() {
         dashboardText.setText("                        Points: " + points + "        High score: " + highscore + "        Fruits dropped: " + droppedFruits);
     }
 
@@ -111,8 +111,12 @@ public class FruitCatcher extends GameEngine {
 		
 		diamondSpawner.setStopAlarm(false);
 		diamondSpawner.startAlarm();
+		
 		setPoints(0);
 		setDroppedFruits(0);
+		
+		this.highscore = Integer.parseInt(persistence.loadDataString());
+        refreshDashboardText();
 	}
 	
 	public void endGame() {
@@ -122,25 +126,26 @@ public class FruitCatcher extends GameEngine {
 		restartButton = new RestartButton(this, worldWidth / 2, worldHeight / 2, 200, 150);
 		if (this.points > this.highscore) {
 			persistence.saveData(Integer.toString(points));
+			refreshDashboardText();
 		}
 		addGameObject(restartButton);
 	}
 	
-	public void increasePoints() {
-        this.points++;
-        refreshDasboardText();
+	public void increasePoints(int aantal) {
+        this.points += aantal;
+        refreshDashboardText();
     }
 	
 	public void increaseFruitsDropped() {
         this.droppedFruits++;
-        refreshDasboardText();
+        refreshDashboardText();
     }
 	
 	private void initializePersistence() {
-        persistence = new FilePersistence("src/main/java/fruitcatcher/media/highscore.txt");
+        persistence = new FilePersistence("main/java/fruitcatcher/media/highscore.txt");
         if (persistence.fileExists()) {
             this.highscore = Integer.parseInt(persistence.loadDataString());
-            refreshDasboardText();
+            refreshDashboardText();
         }
     }
 

@@ -32,14 +32,11 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
 
 	}
 
 	private void doAction() {
-		int points = fruitCatcher.getPoints();
-		points += 10;
-		fruitCatcher.setPoints(points);
+		fruitCatcher.increasePoints(10);
 	}
 
 	@Override
