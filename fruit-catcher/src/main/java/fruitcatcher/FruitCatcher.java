@@ -1,6 +1,7 @@
 package fruitcatcher;
 
 import fruitcatcher.tiles.FloorTile;
+import nl.han.ica.oopg.dashboard.Dashboard;
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.sound.Sound;
@@ -18,6 +19,7 @@ public class FruitCatcher extends GameEngine {
 	private int points;
 	private int droppedFruits;
 	private Diamond diamond;
+	private TextObject dashboardText;
 	
     public static String MEDIA_URL = "src/main/java/fruitcatcher/media/";
     
@@ -51,6 +53,7 @@ public class FruitCatcher extends GameEngine {
         size(worldWidth, worldHeight);
         view.setBackground(loadImage(FruitCatcher.MEDIA_URL.concat("background.png")));
         initializeTileMap();
+        createDashboard(worldWidth, 26);
         //initializeSound();
     }
 
@@ -80,6 +83,13 @@ public class FruitCatcher extends GameEngine {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,},
         };
         tileMap = new TileMap(tileSize, tileTypes, tilesMap);
+    }
+    
+    private void createDashboard(int dashboardWidth, int dashboardHeight) {
+        Dashboard dashboard = new Dashboard(0, 0, dashboardWidth, dashboardHeight);
+        dashboardText = new TextObject("Points: 0          " + "Highscore: 0          " + "Fruits dropped: 0          ");
+        dashboard.addGameObject(dashboardText);
+        addDashboard(dashboard);
     }
 
 	public Player getPlayer() {
