@@ -1,0 +1,2 @@
+[2020-55-30 08:55:42.498] 
+FAILURE: java.io.FileNotFoundException: src\src\main\java\fruitcatcher\media\highscore.txt (Het systeem kan het opgegeven pad niet vinden)
