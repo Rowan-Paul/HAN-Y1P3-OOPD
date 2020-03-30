@@ -20,6 +20,7 @@ public class FruitCatcher extends GameEngine {
 	private int droppedFruits;
 	private Diamond diamond;
 	private TextObject dashboardText;
+	private StartButton startButton;
 	
     public static String MEDIA_URL = "src/main/java/fruitcatcher/media/";
     
@@ -46,6 +47,9 @@ public class FruitCatcher extends GameEngine {
         
         diamond = new Diamond(this);
         addGameObject(diamond, 500, 500);
+        
+        startButton = new StartButton(50, 50, 100, 100);
+        addGameObject(startButton);
         
         View view = new View(worldWidth, worldHeight);
 
