@@ -78,7 +78,7 @@ public class FruitCatcher extends GameEngine {
     
     private void createDashboard(int dashboardWidth, int dashboardHeight) {
         Dashboard dashboard = new Dashboard(0, 0, dashboardWidth, dashboardHeight);
-        dashboardText = new TextObject("Points: 0          " + "Highscore: 0          " + "Fruits dropped: 0          ");
+        dashboardText = new TextObject("                     Points: 0          " + "Highscore: 0          " + "Fruits dropped: 0          ");
         dashboard.addGameObject(dashboardText);
         addDashboard(dashboard);
     }

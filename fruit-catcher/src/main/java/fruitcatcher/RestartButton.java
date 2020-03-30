@@ -1,10 +1,10 @@
 package fruitcatcher;
 
-public class EndButton extends Button {
+public class RestartButton extends Button {
 	
 	private FruitCatcher fruitCatcher;
 
-	EndButton(FruitCatcher fruitCatcher, int x, int y, int width, int height) {
+	RestartButton(FruitCatcher fruitCatcher, int x, int y, int width, int height) {
 		super(x, y, width, height, "END");
 		this.fruitCatcher = fruitCatcher;
 	}
