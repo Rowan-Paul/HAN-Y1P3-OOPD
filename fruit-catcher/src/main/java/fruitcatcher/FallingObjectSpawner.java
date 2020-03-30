@@ -36,6 +36,25 @@ public class FallingObjectSpawner implements IAlarmListener {
 		return null;
 	}
 
+	private void generateFallingObject() {
+		int randomNumber;
+		randomNumber = random.nextInt(4);
+
+		if (randomNumber == 0) {
+			Fruit fruit = new Fruit(fruitCatcher, generateFruitObject());
+			fruitCatcher.addGameObject(fruit, random.nextInt(fruitCatcher.width), 50);
+		} else if (randomNumber == 1) {
+			Bomb bomb = new Bomb(fruitCatcher);
+			fruitCatcher.addGameObject(bomb, random.nextInt(fruitCatcher.width), 50);
+		} else if (randomNumber == 2) {
+			Horse horse = new Horse(fruitCatcher);
+			fruitCatcher.addGameObject(horse, random.nextInt(fruitCatcher.width), 50);
+		} else if (randomNumber == 3) {
+			Train train = new Train(fruitCatcher);
+			fruitCatcher.addGameObject(train, random.nextInt(fruitCatcher.width), 50);
+		}
+	}
+
 	private void startAlarm() {
 		Alarm alarm = new Alarm("New Object", 1 / objectsPerSecond);
 		alarm.addTarget(this);
@@ -44,8 +63,7 @@ public class FallingObjectSpawner implements IAlarmListener {
 
 	@Override
 	public void triggerAlarm(String alarmName) {
-		Fruit fruit = new Fruit(fruitCatcher, generateFruitObject());
-		fruitCatcher.addGameObject(fruit, random.nextInt(fruitCatcher.width), 50);
+		generateFallingObject();
 		startAlarm();
 	}
 
