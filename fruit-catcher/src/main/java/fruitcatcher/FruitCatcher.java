@@ -53,11 +53,7 @@ public class FruitCatcher extends GameEngine {
 	public void update() {
 		if (droppedFruits == 3) {
 			if (buttons == 0) {
-				deleteGameObject(player);
-				fallingObjectSpawner.setStopAlarm(true);
-				diamondSpawner.setStopAlarm(true);
-				restartButton = new RestartButton(this, worldWidth / 2, worldHeight / 2, 200, 150);
-				addGameObject(restartButton);
+				endGame();
 			}
 			buttons++;
 		}
@@ -106,6 +102,14 @@ public class FruitCatcher extends GameEngine {
 		
 		diamondSpawner.setStopAlarm(false);
 		diamondSpawner.startAlarm();
+	}
+	
+	public void endGame() {
+		deleteGameObject(player);
+		fallingObjectSpawner.setStopAlarm(true);
+		diamondSpawner.setStopAlarm(true);
+		restartButton = new RestartButton(this, worldWidth / 2, worldHeight / 2, 200, 150);
+		addGameObject(restartButton);
 	}
 
 	public Player getPlayer() {

@@ -12,14 +12,14 @@ public class Bomb extends FallingObject {
 	
 	@Override
 	public void doAction() {
-		// TODO Auto-generated method stub
-		
+		fruitCatcher.endGame();
 	}
 
 	@Override
 	public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
 		for (GameObject go : collidedGameObjects) {
 			if (go instanceof Player) {
+				doAction();
 				fruitCatcher.deleteGameObject(this);
 			}
 		}
