@@ -3,6 +3,8 @@ package fruitcatcher;
 import java.util.List;
 
 import fruitcatcher.tiles.FloorTile;
+import nl.han.ica.oopg.alarm.Alarm;
+import nl.han.ica.oopg.alarm.IAlarmListener;
 import nl.han.ica.oopg.collision.CollidedTile;
 import nl.han.ica.oopg.collision.CollisionSide;
 import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
@@ -12,7 +14,7 @@ import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
 import processing.core.PVector;
 
-public class Diamond extends SpriteObject implements ICollidableWithTiles, ICollidableWithGameObjects {
+public class Diamond extends SpriteObject implements ICollidableWithTiles, ICollidableWithGameObjects, IAlarmListener {
 
 	private FruitCatcher fruitCatcher;
 
@@ -25,6 +27,7 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 		setGravity(0.2f);
 		setHeight(HEIGHT);
 		setWidth(WIDTH);
+		startAlarm();
 	}
 
 	@Override
@@ -60,5 +63,16 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 				}
 			}
 		}
+	}
+
+	private void startAlarm() {
+		Alarm alarm = new Alarm("Diamond", 3);
+		alarm.addTarget(this);
+		alarm.start();
+	}
+
+	@Override
+	public void triggerAlarm(String alarmName) {
+		fruitCatcher.deleteGameObject(this);
 	}
 }

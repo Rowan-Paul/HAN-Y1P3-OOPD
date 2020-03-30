@@ -9,17 +9,17 @@ public class DiamondSpawner implements IAlarmListener{
 	
 	private FruitCatcher fruitCatcher;
 	private Random random;
-	private double diamondWait;
+	private double newDiamondWait;
 	
 	public DiamondSpawner(FruitCatcher fruitCatcher) {
 		this.fruitCatcher = fruitCatcher;
 		this.random = new Random();
-		this.diamondWait = 10;
+		this.newDiamondWait = 10;
 		startAlarm();
 	}
 	
 	private void startAlarm() {
-		Alarm alarm = new Alarm("New Diamond", diamondWait);
+		Alarm alarm = new Alarm("New Diamond", newDiamondWait);
 		alarm.addTarget(this);
 		alarm.start();
 	}
