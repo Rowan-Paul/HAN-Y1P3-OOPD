@@ -15,7 +15,7 @@ public abstract class FallingObject extends SpriteObject implements ICollidableW
 		this.fruitCatcher = fruitCatcher;
 		this.speed = 1;
 	}
-	
+
 	@Override
 	public void update() {
 		if (this.y > 0) {
@@ -26,4 +26,8 @@ public abstract class FallingObject extends SpriteObject implements ICollidableW
 		}
 	}
 
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+	
 }

@@ -38,20 +38,21 @@ public class FallingObjectSpawner implements IAlarmListener {
 
 	private void generateFallingObject() {
 		int randomNumber;
-		randomNumber = random.nextInt(4);
+		randomNumber = random.nextInt(10);
 
-		if (randomNumber == 0) {
+		if (randomNumber == 0 || randomNumber == 1 || randomNumber == 3 || randomNumber == 5
+				|| randomNumber == 6 || randomNumber == 8) {
 			Fruit fruit = new Fruit(fruitCatcher, generateFruitObject());
 			fruitCatcher.addGameObject(fruit, random.nextInt(fruitCatcher.width), 50);
-		} else if (randomNumber == 1) {
-			Bomb bomb = new Bomb(fruitCatcher);
-			fruitCatcher.addGameObject(bomb, random.nextInt(fruitCatcher.width), 50);
-		} else if (randomNumber == 2) {
+		} else if (randomNumber == 4) {
 			Horse horse = new Horse(fruitCatcher);
 			fruitCatcher.addGameObject(horse, random.nextInt(fruitCatcher.width), 50);
-		} else if (randomNumber == 3) {
+		} else if (randomNumber == 7) {
 			Train train = new Train(fruitCatcher);
 			fruitCatcher.addGameObject(train, random.nextInt(fruitCatcher.width), 50);
+		} else if (randomNumber == 9) {
+			Bomb bomb = new Bomb(fruitCatcher);
+			fruitCatcher.addGameObject(bomb, random.nextInt(fruitCatcher.width), 50);
 		}
 	}
 
