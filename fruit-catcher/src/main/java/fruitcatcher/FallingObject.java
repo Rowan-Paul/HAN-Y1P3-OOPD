@@ -19,7 +19,7 @@ public abstract class FallingObject extends SpriteObject implements ICollidableW
 
 	@Override
 	public void update() {
-		if (this.y > 0) {
+		if (this.y > -getSize() - 1) {
 			setDirectionSpeed(180, speed);
 		}   
 		if (this.y > fruitCatcher.getHeight()) {
