@@ -8,7 +8,12 @@ public class Horse extends FallingObject {
 
 	public Horse(FruitCatcher fruitCatcher) {
 		super(fruitCatcher, "horse.png");
-
+	}
+	
+	@Override
+	public void doAction() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	// @Override

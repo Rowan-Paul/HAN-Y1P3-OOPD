@@ -9,14 +9,12 @@ public class FallingObjectSpawner implements IAlarmListener {
 
 	private FruitCatcher fruitCatcher;
 	private Random random;
-	private int objectsPerSecond;
+	private double objectsPerSecond;
 
-	public FallingObjectSpawner(FruitCatcher fruitCatcher, int objectsPerSecond) {
-		// Use `.concat ()` to string 2 strings together.
-		// The method returned a new String.
+	public FallingObjectSpawner(FruitCatcher fruitCatcher) {
 		this.fruitCatcher = fruitCatcher;
 		this.random = new Random();
-		this.objectsPerSecond = objectsPerSecond;
+		this.objectsPerSecond = 1;
 		startAlarm();
 	}
 
@@ -58,7 +56,7 @@ public class FallingObjectSpawner implements IAlarmListener {
 	}
 
 	private void startAlarm() {
-		Alarm alarm = new Alarm("New Object", 1 / objectsPerSecond);
+		Alarm alarm = new Alarm("New Object", objectsPerSecond);
 		alarm.addTarget(this);
 		alarm.start();
 	}

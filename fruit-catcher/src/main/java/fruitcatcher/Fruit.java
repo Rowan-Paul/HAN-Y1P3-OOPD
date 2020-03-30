@@ -7,9 +7,13 @@ import nl.han.ica.oopg.objects.GameObject;
 public class Fruit extends FallingObject {
 	
 	public Fruit(FruitCatcher fruitCatcher, String fruitObject) {
-		// Use `.concat ()` to string 2 strings together.
-		// The method returned a new String.
 		super(fruitCatcher, fruitObject);
+	}
+	
+	@Override
+	public void doAction() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	// @Override
@@ -20,4 +24,5 @@ public class Fruit extends FallingObject {
 			}
 		}
 	}
+
 }

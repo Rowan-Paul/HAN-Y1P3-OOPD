@@ -8,7 +8,12 @@ public class Bomb extends FallingObject {
 
 	public Bomb(FruitCatcher fruitCatcher) {
 		super(fruitCatcher, "bomb.png");
-
+	}
+	
+	@Override
+	public void doAction() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	// @Override

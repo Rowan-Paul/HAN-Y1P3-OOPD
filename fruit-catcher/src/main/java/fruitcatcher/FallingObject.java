@@ -27,6 +27,9 @@ public abstract class FallingObject extends SpriteObject implements ICollidableW
 		}
 	}
 	
+	public abstract void doAction();
+	
+	
 	public int getSize() {
 		return size;
 	}

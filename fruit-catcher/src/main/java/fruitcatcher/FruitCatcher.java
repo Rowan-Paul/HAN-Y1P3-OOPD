@@ -15,7 +15,6 @@ public class FruitCatcher extends GameEngine {
 	private Fruit fruit;
 	private FallingObjectSpawner spawner;
 	
-	// This line makes it easier to reference your images.
     public static String MEDIA_URL = "src/main/java/fruitcatcher/media/";
     
     public static void main(String[] args) {
@@ -36,7 +35,7 @@ public class FruitCatcher extends GameEngine {
         fruit = new Fruit(this, "apple.png");
         addGameObject(fruit, 500, 100);
         
-        spawner = new FallingObjectSpawner(this, 1);
+        spawner = new FallingObjectSpawner(this);
         
         View view = new View(worldWidth, worldHeight);
 

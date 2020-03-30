@@ -14,18 +14,13 @@ import processing.core.PVector;
 public class Player extends SpriteObject implements ICollidableWithTiles {
 
 	private FruitCatcher fruitCatcher;
-
-	private float gravity;
 	private final int size = 96;
 	private int speed;
 
 	public Player(FruitCatcher fruitCatcher) {
-		// Use `.concat ()` to string 2 strings together.
-		// The method returned a new String.
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat("playerStanding.png")));
 		this.fruitCatcher = fruitCatcher;
-		gravity = 0.2f;
-		setGravity(gravity);
+		setGravity(0.2f);
 		this.speed = 5;
 	}
 
@@ -56,7 +51,6 @@ public class Player extends SpriteObject implements ICollidableWithTiles {
 
 	@Override
 	public void tileCollisionOccurred(List<CollidedTile> collidedTiles) {
-
 		PVector vector;
 		for (CollidedTile ct : collidedTiles) {
 			if (ct.getTile() instanceof FloorTile) {
@@ -68,7 +62,6 @@ public class Player extends SpriteObject implements ICollidableWithTiles {
 						e.printStackTrace();
 					}
 				}
-
 			}
 		}
 	}
@@ -77,6 +70,4 @@ public class Player extends SpriteObject implements ICollidableWithTiles {
 		this.speed = speed;
 	}
 	
-	
-
 }
