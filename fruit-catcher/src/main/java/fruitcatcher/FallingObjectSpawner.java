@@ -10,11 +10,13 @@ public class FallingObjectSpawner implements IAlarmListener {
 	private FruitCatcher fruitCatcher;
 	private Random random;
 	private double newObjectWait;
+	private boolean stopAlarm;;
 
 	public FallingObjectSpawner(FruitCatcher fruitCatcher) {
 		this.fruitCatcher = fruitCatcher;
 		this.random = new Random();
 		this.newObjectWait = 1;
+		this.stopAlarm = false;
 		startAlarm();
 	}
 
@@ -38,32 +40,42 @@ public class FallingObjectSpawner implements IAlarmListener {
 		int randomNumber;
 		randomNumber = random.nextInt(10);
 
-		if (randomNumber == 0 || randomNumber == 1 || randomNumber == 3 || randomNumber == 5 
-				|| randomNumber == 6 || randomNumber == 8) {
+		if (randomNumber == 0 || randomNumber == 1 || randomNumber == 3 || randomNumber == 5 || randomNumber == 6
+				|| randomNumber == 8) {
 			Fruit fruit = new Fruit(fruitCatcher, generateFruitObject());
-			fruitCatcher.addGameObject(fruit, random.nextInt(fruitCatcher.width - (int) fruit.getWidth()), -fruit.getWidth());
+			fruitCatcher.addGameObject(fruit, random.nextInt(fruitCatcher.width - (int) fruit.getWidth()),
+					-fruit.getWidth());
 		} else if (randomNumber == 4) {
 			Horse horse = new Horse(fruitCatcher);
-			fruitCatcher.addGameObject(horse, random.nextInt(fruitCatcher.width - (int) horse.getWidth()), -horse.getWidth());
+			fruitCatcher.addGameObject(horse, random.nextInt(fruitCatcher.width - (int) horse.getWidth()),
+					-horse.getWidth());
 		} else if (randomNumber == 7) {
 			Train train = new Train(fruitCatcher);
-			fruitCatcher.addGameObject(train, random.nextInt(fruitCatcher.width - (int) train.getWidth()), -train.getWidth());
+			fruitCatcher.addGameObject(train, random.nextInt(fruitCatcher.width - (int) train.getWidth()),
+					-train.getWidth());
 		} else if (randomNumber == 9) {
 			Bomb bomb = new Bomb(fruitCatcher);
-			fruitCatcher.addGameObject(bomb, random.nextInt(fruitCatcher.width - (int) bomb.getWidth()), -bomb.getWidth());
+			fruitCatcher.addGameObject(bomb, random.nextInt(fruitCatcher.width - (int) bomb.getWidth()),
+					-bomb.getWidth());
 		}
 	}
 
-	private void startAlarm() {
-		Alarm alarm = new Alarm("New Object", newObjectWait);
-		alarm.addTarget(this);
-		alarm.start();
+	public void startAlarm() {
+		if (!stopAlarm) {
+			Alarm alarm = new Alarm("New Object", newObjectWait);
+			alarm.addTarget(this);
+			alarm.start();
+		}
 	}
 
 	@Override
 	public void triggerAlarm(String alarmName) {
 		generateFallingObject();
 		startAlarm();
+	}
+
+	public void setStopAlarm(boolean stopAlarm) {
+		this.stopAlarm = stopAlarm;
 	}
 
 }

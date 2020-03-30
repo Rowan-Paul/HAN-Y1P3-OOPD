@@ -38,7 +38,7 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 
 	private void doAction() {
 		int points = fruitCatcher.getPoints();
-		points += 20;
+		points += 10;
 		fruitCatcher.setPoints(points);
 	}
 
