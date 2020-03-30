@@ -7,7 +7,6 @@ import nl.han.ica.oopg.collision.CollidedTile;
 import nl.han.ica.oopg.collision.CollisionSide;
 import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
 import nl.han.ica.oopg.collision.ICollidableWithTiles;
-import nl.han.ica.oopg.exceptions.TileNotFoundException;
 import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.objects.SpriteObject;
@@ -35,7 +34,9 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 	}
 
 	private void doAction() {
-
+		int points = fruitCatcher.getPoints();
+		points += 20;
+		fruitCatcher.setPoints(points);
 	}
 
 	@Override

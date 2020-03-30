@@ -13,7 +13,8 @@ public class FruitCatcher extends GameEngine {
     
 	private Player player;
 	private Fruit fruit;
-	private FallingObjectSpawner spawner;
+	private FallingObjectSpawner fallingObjectSpawner;
+	private DiamondSpawner diamondSpawner;
 	private int points;
 	private int droppedFruits;
 	private Diamond diamond;
@@ -38,7 +39,8 @@ public class FruitCatcher extends GameEngine {
         fruit = new Fruit(this, "apple.png");
         addGameObject(fruit, 500, 100);
         
-        spawner = new FallingObjectSpawner(this);
+        fallingObjectSpawner = new FallingObjectSpawner(this);
+        diamondSpawner = new DiamondSpawner(this);
         
         diamond = new Diamond(this);
         addGameObject(diamond, 500, 500);

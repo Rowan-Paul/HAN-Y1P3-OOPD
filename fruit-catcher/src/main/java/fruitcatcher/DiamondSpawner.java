@@ -1,5 +1,34 @@
 package fruitcatcher;
 
-public class DiamondSpawner {
+import java.util.Random;
 
+import nl.han.ica.oopg.alarm.Alarm;
+import nl.han.ica.oopg.alarm.IAlarmListener;
+
+public class DiamondSpawner implements IAlarmListener{
+	
+	private FruitCatcher fruitCatcher;
+	private Random random;
+	private double diamondWait;
+	
+	public DiamondSpawner(FruitCatcher fruitCatcher) {
+		this.fruitCatcher = fruitCatcher;
+		this.random = new Random();
+		this.diamondWait = 10;
+		startAlarm();
+	}
+	
+	private void startAlarm() {
+		Alarm alarm = new Alarm("New Diamond", diamondWait);
+		alarm.addTarget(this);
+		alarm.start();
+	}
+	
+	@Override
+	public void triggerAlarm(String alarmName) {
+		Diamond diamond = new Diamond(fruitCatcher);
+		fruitCatcher.addGameObject(diamond, random.nextInt(fruitCatcher.width - (int) diamond.getWidth()), 500);
+		startAlarm();
+	}
+	
 }

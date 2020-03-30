@@ -9,12 +9,12 @@ public class FallingObjectSpawner implements IAlarmListener {
 
 	private FruitCatcher fruitCatcher;
 	private Random random;
-	private double objectsPerSecond;
+	private double newObjectWait;
 
 	public FallingObjectSpawner(FruitCatcher fruitCatcher) {
 		this.fruitCatcher = fruitCatcher;
 		this.random = new Random();
-		this.objectsPerSecond = 1;
+		this.newObjectWait = 1;
 		startAlarm();
 	}
 
@@ -41,21 +41,21 @@ public class FallingObjectSpawner implements IAlarmListener {
 		if (randomNumber == 0 || randomNumber == 1 || randomNumber == 3 || randomNumber == 5 
 				|| randomNumber == 6 || randomNumber == 8) {
 			Fruit fruit = new Fruit(fruitCatcher, generateFruitObject());
-			fruitCatcher.addGameObject(fruit, random.nextInt(fruitCatcher.width - fruit.getSize()), -fruit.getSize());
+			fruitCatcher.addGameObject(fruit, random.nextInt(fruitCatcher.width - (int) fruit.getWidth()), -fruit.getWidth());
 		} else if (randomNumber == 4) {
 			Horse horse = new Horse(fruitCatcher);
-			fruitCatcher.addGameObject(horse, random.nextInt(fruitCatcher.width - horse.getSize()), -horse.getSize());
+			fruitCatcher.addGameObject(horse, random.nextInt(fruitCatcher.width - (int) horse.getWidth()), -horse.getWidth());
 		} else if (randomNumber == 7) {
 			Train train = new Train(fruitCatcher);
-			fruitCatcher.addGameObject(train, random.nextInt(fruitCatcher.width - train.getSize()), -train.getSize());
+			fruitCatcher.addGameObject(train, random.nextInt(fruitCatcher.width - (int) train.getWidth()), -train.getWidth());
 		} else if (randomNumber == 9) {
 			Bomb bomb = new Bomb(fruitCatcher);
-			fruitCatcher.addGameObject(bomb, random.nextInt(fruitCatcher.width - bomb.getSize()), -bomb.getSize());
+			fruitCatcher.addGameObject(bomb, random.nextInt(fruitCatcher.width - (int) bomb.getWidth()), -bomb.getWidth());
 		}
 	}
 
 	private void startAlarm() {
-		Alarm alarm = new Alarm("New Object", objectsPerSecond);
+		Alarm alarm = new Alarm("New Object", newObjectWait);
 		alarm.addTarget(this);
 		alarm.start();
 	}
