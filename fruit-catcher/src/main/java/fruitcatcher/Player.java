@@ -16,7 +16,8 @@ public class Player extends SpriteObject implements ICollidableWithTiles {
 	private FruitCatcher fruitCatcher;
 
 	private float gravity;
-	final int size = 96;
+	private final int size = 96;
+	private int speed;
 
 	public Player(FruitCatcher fruitCatcher) {
 		// Use `.concat ()` to string 2 strings together.
@@ -25,6 +26,7 @@ public class Player extends SpriteObject implements ICollidableWithTiles {
 		this.fruitCatcher = fruitCatcher;
 		gravity = 0.2f;
 		setGravity(gravity);
+		this.speed = 5;
 	}
 
 	@Override
@@ -43,7 +45,6 @@ public class Player extends SpriteObject implements ICollidableWithTiles {
 
 	@Override
 	public void keyPressed(int keyCode, char key) {
-		final int speed = 5;
 		if (keyCode == fruitCatcher.LEFT) {
 			setDirectionSpeed(270, speed);
 		}
@@ -70,7 +71,12 @@ public class Player extends SpriteObject implements ICollidableWithTiles {
 
 			}
 		}
-
 	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+	
+	
 
 }

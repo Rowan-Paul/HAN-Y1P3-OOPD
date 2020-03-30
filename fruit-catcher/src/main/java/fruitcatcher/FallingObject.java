@@ -9,6 +9,7 @@ public abstract class FallingObject extends SpriteObject implements ICollidableW
 	protected FruitCatcher fruitCatcher;
 
 	private int speed;
+	private int size = 96;
 
 	public FallingObject(FruitCatcher fruitCatcher, String object) {
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat(object)));
@@ -25,9 +26,14 @@ public abstract class FallingObject extends SpriteObject implements ICollidableW
 			fruitCatcher.deleteGameObject(this);
 		}
 	}
+	
+	public int getSize() {
+		return size;
+	}
 
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
+
 	
 }
