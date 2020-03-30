@@ -19,7 +19,7 @@ public abstract class Button extends GameObject implements IMouseInput {
 	}
 	
 	public void mouseClicked(int x, int y, int button) {
-		if (this.x < x && this.y < y && this.x + this.getWidth() > x && this.y + this.getHeight() > y)
+		if (this.x - this.getWidth() / 2 < x && this.y - this.getWidth() / 2 < y && this.x + this.getWidth() / 2 > x && this.y + this.getHeight() / 2 > y)
 		doAction();
 	}
 	
@@ -28,11 +28,12 @@ public abstract class Button extends GameObject implements IMouseInput {
 	@Override
 	public void draw(PGraphics g) {
 		g.fill(9, 130, 55);
+		g.rectMode(CENTER);
 		g.rect(this.x, this.y, this.width, this.height);
 		g.fill(0);
-		g.textSize(20);
+		g.textSize(30);
 		g.textAlign(CENTER, CENTER);
-		g.text(text, this.x + this.width / 2, this.y + this.height / 2);
+		g.text(text, this.x , this.y);
 	}
 
 }

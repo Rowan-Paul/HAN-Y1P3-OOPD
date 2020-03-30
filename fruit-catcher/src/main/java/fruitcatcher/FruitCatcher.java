@@ -34,8 +34,9 @@ public class FruitCatcher extends GameEngine {
         int worldWidth = 800;
         int worldHeight = 600;
         
-        // of course it is best to add new game objects
-        // in a separate method instead of making the update so large.
+        startButton = new StartButton(this, worldWidth / 2, worldHeight / 2, 200, 150);
+        addGameObject(startButton);
+        
         player = new Player(this);
         addGameObject(getPlayer(), 200, 500);
         
@@ -47,9 +48,6 @@ public class FruitCatcher extends GameEngine {
         
         diamond = new Diamond(this);
         addGameObject(diamond, 500, 500);
-        
-        startButton = new StartButton(50, 50, 100, 100);
-        addGameObject(startButton);
         
         View view = new View(worldWidth, worldHeight);
 
@@ -95,6 +93,11 @@ public class FruitCatcher extends GameEngine {
         dashboard.addGameObject(dashboardText);
         addDashboard(dashboard);
     }
+    
+    private void startPlaying() {
+    	
+    }
+   
 
 	public Player getPlayer() {
 		return player;

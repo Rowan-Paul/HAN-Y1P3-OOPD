@@ -1,9 +1,12 @@
 package fruitcatcher;
 
 public class EndButton extends Button {
+	
+	private FruitCatcher fruitCatcher;
 
-	EndButton(int x, int y, int width, int height) {
+	EndButton(FruitCatcher fruitCatcher, int x, int y, int width, int height) {
 		super(x, y, width, height, "END");
+		this.fruitCatcher = fruitCatcher;
 	}
 
 	@Override
