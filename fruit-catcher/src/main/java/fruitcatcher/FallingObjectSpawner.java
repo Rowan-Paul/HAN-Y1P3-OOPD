@@ -44,19 +44,19 @@ public class FallingObjectSpawner implements IAlarmListener {
 				|| randomNumber == 8) {
 			Fruit fruit = new Fruit(fruitCatcher, generateFruitObject());
 			fruitCatcher.addGameObject(fruit, random.nextInt(fruitCatcher.getWidth() - (int) fruit.getWidth()),
-					-fruit.getWidth());
+					-fruit.getHeight());
 		} else if (randomNumber == 4) {
 			Horse horse = new Horse(fruitCatcher);
 			fruitCatcher.addGameObject(horse, random.nextInt(fruitCatcher.getWidth() - (int) horse.getWidth()),
-					-horse.getWidth());
+					-horse.getHeight());
 		} else if (randomNumber == 7) {
 			Train train = new Train(fruitCatcher);
 			fruitCatcher.addGameObject(train, random.nextInt(fruitCatcher.getWidth() - (int) train.getWidth()),
-					-train.getWidth());
+					-train.getHeight());
 		} else if (randomNumber == 9) {
 			Bomb bomb = new Bomb(fruitCatcher);
 			fruitCatcher.addGameObject(bomb, random.nextInt(fruitCatcher.getWidth() - (int) bomb.getWidth()),
-					-bomb.getWidth());
+					-bomb.getHeight());
 		}
 	}
 
