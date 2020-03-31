@@ -30,7 +30,7 @@ public abstract class FallingObject extends SpriteObject implements ICollidableW
 
 	public abstract void doAction();
 
-	public void setSpeed(int speed) {
+	public static void setSpeed(int speed) {
 		FallingObject.speed = speed;
 	}
 }
