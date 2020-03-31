@@ -14,7 +14,7 @@ public class Train extends FallingObject implements IAlarmListener {
 	
 	@Override
 	public void doAction() {
-		setSpeed(4);
+		setSpeed(3);
 		startAlarm();
 	}
 

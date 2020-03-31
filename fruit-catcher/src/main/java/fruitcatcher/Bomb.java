@@ -5,6 +5,7 @@ import java.util.List;
 import nl.han.ica.oopg.objects.GameObject;
 
 public class Bomb extends FallingObject {
+	
 
 	public Bomb(FruitCatcher fruitCatcher) {
 		super(fruitCatcher, "bomb.png");
@@ -12,6 +13,7 @@ public class Bomb extends FallingObject {
 	
 	@Override
 	public void doAction() {
+		fruitCatcher.setEndGame(true);
 		fruitCatcher.endGame();
 	}
 

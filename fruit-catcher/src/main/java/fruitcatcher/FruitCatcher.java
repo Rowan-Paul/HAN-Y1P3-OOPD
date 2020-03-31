@@ -39,8 +39,7 @@ public class FruitCatcher extends GameEngine {
 
 	@Override
 	public void setupGame() {
-
-		endGame = false;
+		setEndGame(false);
 
 		startButton = new StartButton(this, worldWidth / 2, worldHeight / 2, 200, 150);
 		addGameObject(startButton);
@@ -61,7 +60,7 @@ public class FruitCatcher extends GameEngine {
 	public void update() {
 		if (droppedFruits == 3) {
 			if (buttons == 0) {
-				endGame = true;
+				setEndGame(true);
 				endGame();
 				buttons++;
 			}
@@ -114,7 +113,7 @@ public class FruitCatcher extends GameEngine {
 	}
 
 	public void restartPlaying() {
-		endGame = false;
+		setEndGame(false);
 
 		FallingObject.setSpeed(1);
 
@@ -178,6 +177,10 @@ public class FruitCatcher extends GameEngine {
 
 	public void setDroppedFruits(int droppedFruits) {
 		this.droppedFruits = droppedFruits;
+	}
+
+	public void setEndGame(boolean endGame) {
+		this.endGame = endGame;
 	}
 
 	/*
