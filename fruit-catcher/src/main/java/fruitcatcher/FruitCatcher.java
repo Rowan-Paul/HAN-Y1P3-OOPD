@@ -135,7 +135,7 @@ public class FruitCatcher extends GameEngine {
 	}
 	
 	/**
-	 * Resets de dashboard scores
+	 * Resets the dashboard scores
 	 */
 	private void resetDashboardScores() {
 		setPoints(0);
@@ -184,9 +184,9 @@ public class FruitCatcher extends GameEngine {
 	 */
 	public void endGame() {
 		deleteGameObject(player);
-		FallingObject.setSpeed(5);
 		fallingObjectSpawner.setStopAlarm(true);
 		diamondSpawner.setStopAlarm(true);
+		FallingObject.setSpeed(10);
 		restartButton = new RestartButton(this, WORLD_WIDTH / 2, WORLD_HEIGHT / 2, 200, 150);
 		addGameObject(restartButton);
 		

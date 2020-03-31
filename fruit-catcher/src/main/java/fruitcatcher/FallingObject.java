@@ -13,7 +13,7 @@ public abstract class FallingObject extends SpriteObject implements ICollidableW
 
 	protected FruitCatcher fruitCatcher;
 
-	private static int speed;
+	private static int speed = 1;
 
 	/**
 	 * Adds Constructor
@@ -24,7 +24,6 @@ public abstract class FallingObject extends SpriteObject implements ICollidableW
 	public FallingObject(FruitCatcher fruitCatcher, String object) {
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat(object)));
 		this.fruitCatcher = fruitCatcher;
-		FallingObject.speed = 1;
 	}
 
 	/**
