@@ -51,7 +51,6 @@ public class FruitCatcher extends GameEngine {
 		initializeTileMap();
 		createDashboard(worldWidth, 26);
 		initializePersistence();
-		// initializeSound();
 	}
 
 	@Override
@@ -168,10 +167,5 @@ public class FruitCatcher extends GameEngine {
 	public void setDroppedFruits(int droppedFruits) {
 		this.droppedFruits = droppedFruits;
 	}
-
-	/*
-	 * private void initializeSound() { backgroundMusic = new Sound(this,
-	 * MEDIA_URL.concat("jump_08.mp3")); backgroundMusic.loop(-1); }
-	 */
 
 }
