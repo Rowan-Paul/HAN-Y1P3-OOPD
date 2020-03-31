@@ -66,6 +66,16 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 			}
 		}
 	}
+	
+	public boolean isPlayerOnTheLeft() {
+		boolean isPlayerOnTheLeft = false;
+		if(getX() < fruitCatcher.width / 2) {
+			isPlayerOnTheLeft = true;
+		} else if(getX() > fruitCatcher.displayWidth / 2) {
+			isPlayerOnTheLeft = false;
+		}
+		return isPlayerOnTheLeft;
+	}
 
 	public void setSpeed(int speed) {
 		this.speed = speed;

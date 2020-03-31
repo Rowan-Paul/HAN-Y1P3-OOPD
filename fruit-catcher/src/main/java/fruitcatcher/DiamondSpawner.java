@@ -30,7 +30,11 @@ public class DiamondSpawner implements IAlarmListener {
 	@Override
 	public void triggerAlarm(String alarmName) {
 		Diamond diamond = new Diamond(fruitCatcher);
-		fruitCatcher.addGameObject(diamond, random.nextInt(fruitCatcher.width - (int) diamond.getWidth()), 500);
+		if (fruitCatcher.getPlayer().isPlayerOnTheLeft()) {
+			fruitCatcher.addGameObject(diamond, fruitCatcher.width / 2 + random.nextInt(fruitCatcher.width / 2 - (int) diamond.getWidth()), 500);
+		} else if (!fruitCatcher.getPlayer().isPlayerOnTheLeft()) {
+			fruitCatcher.addGameObject(diamond, random.nextInt(fruitCatcher.width / 2 - (int) diamond.getWidth()), 500);
+		}
 		startAlarm();
 	}
 
