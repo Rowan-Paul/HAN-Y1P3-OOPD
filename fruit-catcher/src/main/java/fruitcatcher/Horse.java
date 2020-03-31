@@ -15,6 +15,7 @@ public class Horse extends FallingObject implements IAlarmListener {
 	@Override
 	public void doAction() {
 		fruitCatcher.getPlayer().setSpeed(3);
+		fruitCatcher.getPlayer().setTrainHit(true);
 		startAlarm();
 	}
 
@@ -37,7 +38,7 @@ public class Horse extends FallingObject implements IAlarmListener {
 	@Override
 	public void triggerAlarm(String alarmName) {
 		fruitCatcher.getPlayer().setSpeed(7);
-		
+		fruitCatcher.getPlayer().setTrainHit(false);
 	}
 
 }

@@ -14,6 +14,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 
 	private FruitCatcher fruitCatcher;
 	private int speed;
+	private boolean horseHit = false;
 
 	public Player(FruitCatcher fruitCatcher) {
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat("playerx.png")), 3);
@@ -36,7 +37,7 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 			setX(fruitCatcher.width - getWidth());
 		}
 
-		if (getSpeed() < 4.5) {
+		if (getSpeed() < 4.5 && horseHit == false) {
 			setCurrentFrameIndex(1);
 		}
 	}
@@ -68,6 +69,10 @@ public class Player extends AnimatedSpriteObject implements ICollidableWithTiles
 
 	public void setSpeed(int speed) {
 		this.speed = speed;
+	}
+
+	public void setTrainHit(boolean horseHit) {
+		this.horseHit = horseHit;
 	}
 
 }
