@@ -6,18 +6,19 @@ import fruitcatcher.tiles.FloorTile;
 import nl.han.ica.oopg.collision.CollidedTile;
 import nl.han.ica.oopg.collision.CollisionSide;
 import nl.han.ica.oopg.collision.ICollidableWithTiles;
+import nl.han.ica.oopg.objects.AnimatedSpriteObject;
 import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.objects.SpriteObject;
 import processing.core.PVector;
 
-public class Player extends SpriteObject implements ICollidableWithTiles {
+public class Player extends AnimatedSpriteObject implements ICollidableWithTiles {
 
 	private FruitCatcher fruitCatcher;
 	private int speed;
 
 	public Player(FruitCatcher fruitCatcher) {
-		super(new Sprite(FruitCatcher.MEDIA_URL.concat("playerStanding2x.png")));
+		super(new Sprite(FruitCatcher.MEDIA_URL.concat("playerx.png")), 3);
 		this.fruitCatcher = fruitCatcher;
+		setCurrentFrameIndex(1);
 		setGravity(0.2f);
 		speed = 7;
 		setFriction(0.05f);
@@ -35,17 +36,21 @@ public class Player extends SpriteObject implements ICollidableWithTiles {
 			setX(fruitCatcher.width - getWidth());
 		}
 
+		if (getSpeed() < 4.5) {
+			setCurrentFrameIndex(1);
+		}
 	}
 
 	@Override
 	public void keyPressed(int keyCode, char key) {
 		if (keyCode == fruitCatcher.LEFT) {
 			setDirectionSpeed(270, speed);
+			setCurrentFrameIndex(0);
 		}
 		if (keyCode == fruitCatcher.RIGHT) {
 			setDirectionSpeed(90, speed);
+			setCurrentFrameIndex(2);
 		}
-
 	}
 
 	@Override
