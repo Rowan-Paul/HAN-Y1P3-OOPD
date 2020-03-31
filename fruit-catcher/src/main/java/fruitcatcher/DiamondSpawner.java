@@ -18,8 +18,8 @@ public class DiamondSpawner implements IAlarmListener {
 
 	/**
 	 * Set variables, start alarm
-	 * @param fruitCatcher Refrence to package
-	 * @param newDiamondWait Create new diamond
+	 * @param fruitCatcher
+	 * @param newDiamondWait
 	 */
 	public DiamondSpawner(FruitCatcher fruitCatcher, double newDiamondWait) {
 		this.fruitCatcher = fruitCatcher;

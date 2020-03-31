@@ -12,7 +12,7 @@ public class Bomb extends FallingObject {
 	
 	/**
 	 * Adds bomb image
-	 * @param fruitCatcher Refrence to package
+	 * @param fruitCatcher
 	 */
 	public Bomb(FruitCatcher fruitCatcher) {
 		super(fruitCatcher, "bomb.png");

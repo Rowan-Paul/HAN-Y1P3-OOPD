@@ -28,7 +28,7 @@ public class Diamond extends SpriteObject implements ICollidableWithTiles, IColl
 	/**
 	 * Adds sprite for diamond, set gravity, 
 	 * height, width and starts alarm
-	 * @param fruitCatcher Refrence to package
+	 * @param fruitCatcher
 	 */
 	public Diamond(FruitCatcher fruitCatcher) {
 		super(new Sprite(FruitCatcher.MEDIA_URL.concat("diamond.png")));

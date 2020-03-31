@@ -36,13 +36,17 @@ public class FruitCatcher extends GameEngine {
 
 	public static String MEDIA_URL = "src/main/java/Fruitcatcher/media/";
 
+	/**
+	 * Main method
+	 * @param args Arguments
+	 */
 	public static void main(String[] args) {
 		FruitCatcher FruitCatcher = new FruitCatcher();
 		FruitCatcher.runSketch();
 	}
 
 	/**
-	 * Loads necessary functions
+	 * Load necessary functions
 	 */
 	@Override
 	public void setupGame() {
@@ -63,7 +67,7 @@ public class FruitCatcher extends GameEngine {
 	}
 
 	/**
-	 * Checks if the game should be ended
+	 * Check if the game should be ended
 	 */
 	@Override
 	public void update() {
@@ -80,7 +84,7 @@ public class FruitCatcher extends GameEngine {
 	}
 
 	/**
-	 * Adds tilemap for collisions
+	 * Add tilemap for collisions
 	 */
 	private void initializeTileMap() {
 		Sprite floorSprite = new Sprite(FruitCatcher.MEDIA_URL.concat("grass.png"));
