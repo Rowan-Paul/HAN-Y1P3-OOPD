@@ -16,7 +16,7 @@ public abstract class FallingObject extends SpriteObject implements ICollidableW
 	private static int speed = 1;
 
 	/**
-	 * Adds Constructor
+	 * Constructor
 	 * 
 	 * @param fruitCatcher Reference to the game
 	 * @param object The falling object

@@ -198,7 +198,7 @@ public class FruitCatcher extends GameEngine {
 
 	/**
 	 * Increases the points
-	 * @param amount amount of points that needs to be added to score
+	 * @param amount Amount of points that needs to be added to score
 	 */
 	public void increasePoints(int amount) {
 		this.points += amount;
@@ -228,7 +228,7 @@ public class FruitCatcher extends GameEngine {
 
 	/**
 	 * Getter for Player
-	 * @return returns player
+	 * @return Returns player
 	 */
 	public Player getPlayer() {
 		return player;
@@ -236,7 +236,7 @@ public class FruitCatcher extends GameEngine {
 
 	/**
 	 * Setter for points
-	 * @param points amount of points that needs to be set
+	 * @param points Amount of points that needs to be set
 	 */
 	public void setPoints(int points) {
 		this.points = points;
@@ -244,7 +244,7 @@ public class FruitCatcher extends GameEngine {
 
 	/**
 	 * Sets amount of dropped Fruit
-	 * @param droppedFruit amount of dropped fruit
+	 * @param droppedFruit Amount of dropped fruit
 	 */
 	public void setDroppedFruit(int droppedFruit) {
 		this.droppedFruit = droppedFruit;
@@ -252,7 +252,7 @@ public class FruitCatcher extends GameEngine {
 
 	/**
 	 * Ends the game or restarts it
-	 * @param endGame true when ending game
+	 * @param endGame True when ending game
 	 */
 	public void setEndGame(boolean endGame) {
 		this.endGame = endGame;
